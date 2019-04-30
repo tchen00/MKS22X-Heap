@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Heap{
+public class MyHeap{
 
   private static void pushDown(int[]data, int size, int index){
     /*
