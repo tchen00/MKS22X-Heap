@@ -90,6 +90,14 @@ public class Heap{
       - convert the array into a valid heap. [ should be O(n) ]
     */
 
+    // second to last row of heap 
+    int row = (int)(Math.log(data.length) / Math.log(2));
+    // starting from the right child
+    for (int i = (int) Math.pow(2, row) - 2; i >= 0; i--){
+      // push down the child
+      pushDown(data, data.length, i);
+    }
+
 
   }
 
