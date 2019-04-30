@@ -10,9 +10,10 @@ public class Heap{
        - precondition: index is between 0 and size-1 inclusive
        - precondition: size is between 0 and data.length-1 inclusive.
     */
+
     // tracker for sorting
     boolean sort = false;
-    // while it is not sorted
+    // while it is not sort
     while (!sort) {
       int a = index * 2 + 1; // left side
       int b = index * 2 + 2; // right child
@@ -34,7 +35,7 @@ public class Heap{
         else { // if not, do swapping
           // left is bigger
           if (max == data[a]){
-            // performing the swap 
+            // performing the swap
             data[index] = data[a];
             data[a] = temp;
             index = a;
@@ -57,6 +58,28 @@ public class Heap{
        - precondition: index is between 0 and data.length-1 inclusive.
     */
 
+    //tracker for sorting
+    boolean sort = false;
+    // while not sort
+    while (!sort) {
+      // if ther e is no parent
+      if (index == 0) {
+        sort = true;
+      }
+      else {
+        int parent = (index - 1) / 2;
+        // temp for swapping
+        int temp = data[index];
+        // if child is greater --
+        if (temp > data[parent]){
+          // swap
+          data[index] = data[parent];
+          data[parent] = temp;
+          index = parent;
+        }
+        else sort = true;
+      }
+    }
 
 
 
