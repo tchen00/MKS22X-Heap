@@ -85,12 +85,12 @@ public class Heap{
 
   }
 
-  public static void heapify(int[]){
+  public static void heapify(int[] data){
     /*
       - convert the array into a valid heap. [ should be O(n) ]
     */
 
-    // second to last row of heap 
+    // second to last row of heap
     int row = (int)(Math.log(data.length) / Math.log(2));
     // starting from the right child
     for (int i = (int) Math.pow(2, row) - 2; i >= 0; i--){
@@ -101,11 +101,20 @@ public class Heap{
 
   }
 
-  public static void heapsort(int[]){
+  public static void heapsort(int[] data){
     /*
       - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
     */
 
+    heapify(data);
+    for (int i = data.length - 1; i >= 0; i--){
+      // keeping note of the max
+      int temp = data[0];
+      // swap and then fix later
+      data[0] = data[i];
+      data[i] = temp;
+      pushDown(data, i, 0);
+    }
   }
 
 }
